@@ -1,12 +1,3 @@
-
-
-
-// fs.readdir(testFolder, (err, files) => {
-//   files.forEach(file => {
-//     console.log(file);
-//   });
-// });
-
 const read = require('node:fs/promises');
 const testFolder = './03-files-in-folder/secret-folder/';
 const path = require("path");
