@@ -13,6 +13,13 @@ async function copyFile() {
             const destPath = path.join(destFolder, file);
             await fs.promises.copyFile(srcPath, destPath);
         }
+        const destFiles = await  fs.promises.readdir(destFolder);
+        for (const fileDest of destFiles) {
+            if (!files.includes(fileDest)) {
+                const destPath = path.join(destFolder, fileDest);
+                await fs.promises.unlink(destPath);
+            }
+        }
     } catch(error) {
         return console.error(error);
     }
