@@ -15,7 +15,7 @@ async function checkFile(file) {
 async function readFile() {
   try {
     const files = await read.readdir(folder);
-    const dist = './05-merge-styles/project-dist/';
+    const dist = './05-merge-styles/project-dist';
     await checkFile(dist);
     const pathDist = path.join(dist, "bundle.css")
     fs.writeFile(pathDist, "", (err) => {
@@ -28,7 +28,7 @@ async function readFile() {
             const filePath = path.join(folder, file);
             const info = fs.createReadStream(filePath);
             info.on("data", (chunk) => {
-                fs.appendFile('./05-merge-styles/project-dist/bundle.css/', chunk.toString(), (err) => {
+                fs.appendFile('./05-merge-styles/project-dist/bundle.css', chunk.toString(), (err) => {
                     if (err) throw err;
                 });
             });
